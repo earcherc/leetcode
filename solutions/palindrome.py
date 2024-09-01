@@ -6,21 +6,27 @@ class Solution:
         # We would then iterate the pointers from the start and end, checking that they match with each iteration
         # If the pointers cross eachother, we know we were succesful
         s = s.lower()
-        s = ''.join(char for char in s if char.isalnum())
 
         left_idx = 0
         right_idx = len(s) - 1
 
         if len(s) == 1:
-            if s.isalpha():
+            if s.isalnum():
                 return True
 
         while left_idx < right_idx:
-            if s[left_idx] == s[right_idx]:
+            if s[left_idx].isalnum() and s[right_idx].isalnum():
+                if s[left_idx] == s[right_idx]:
+                    left_idx += 1
+                    right_idx -= 1
+                else:
+                    return False
+
+            if not s[left_idx].isalnum():
                 left_idx += 1
+
+            if not s[right_idx].isalnum():
                 right_idx -= 1
-            else:
-                return False
         
         return True
 
