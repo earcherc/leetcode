@@ -39,4 +39,11 @@ class Solution:
 
         return max_area
 
-            
+ 
+        # My main misunderstanding with this problem is the confidence in calculating all permutations
+        # We don't need to do this because if we start with the two pointers, the right wall is taller
+        # It's obvious that this is to us the best possible case we have so far
+        # How can we make it better?
+        # It's only possible to make it better if we abandon the shorter wall in hopes of finding a taller wall that 
+        # offsets the loss in volume from the decreased width
+        # This is the main piece of the puzzle           
